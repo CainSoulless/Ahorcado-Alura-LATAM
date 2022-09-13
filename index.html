@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Juego del ahorcado - Alura LATAM</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    </head>
+    <body>
+    <header>
+        <img class="logo" src="img/Vector.svg" alt="Logo de Alura LATAM" onclick="lobbyGame('flex')">
+    </header>
+    <main>
+        <div id="ahorcado">
+            <canvas id="myCanvas" width="1200" height="860"></canvas>
+        </div>
+        <div class="buttons">
+            <button type="button" id="btnStart" onclick="startGame()">Iniciar juego</button>
+            <button type="button" id="btnAddWord" onclick="lobbyGame('none')">Agregar nueva palabra</button>
+        </div>
+    </main>
+    <footer>
+        <p>Developed by Rodrigo Hormazabal</p>
+        <a href="https://www.github.com/CainSoulless" target="_blank">GitHub</a>
+    </footer>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/canvas.js"></script>
+</body>
+</html>
+
