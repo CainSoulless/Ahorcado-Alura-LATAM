@@ -1,6 +1,7 @@
-let words = ["ALURA", "ORACLE", "ONE", "JAVASCRIPT", "LATAM"]
+// let words = ["ALURA", "ORACLE", "ONE", "JAVASCRIPT", "LATAM"];
+let words = ["ONE"];
 let secretWord = randomWord();
-let canvasEl = document.getElementById("myCanvas")
+let canvasEl = document.getElementById("myCanvas");
 let table = canvasEl.getContext("2d");
 
 // Show and hidde elements in the page lobby 
@@ -20,7 +21,7 @@ function lobbyGame(disp) {
 // Return the word randimized.
 function randomWord() {
     list = words;
-    let index = Math.floor(Math.random() * list.length);
+    var index = Math.floor(Math.random() * list.length);
     console.log(list[index]);
     return list[index];
 }
@@ -28,11 +29,26 @@ function randomWord() {
 // Return the key pressed by the user.
 function keyboardCapturer(evObject) {
     var character = String.fromCharCode(evObject.which).toUpperCase();
-
-    if (typeof character == 'string' && secretWord.indexOf(character) != -1) {
-        let index = secretWord.indexOf(character);
-        console.log(secretWord[index]);
+    var index = secretWord.indexOf(character);
+    // Check if the character isn't a number and if there is into the string.
+    if (typeof character == 'string' && index != -1) {
+        correctChar(character);
+    } else {
+        incorrectChar(character);
     }
+}
+
+function correctChar(character) {
+    for (let i = 0; i < secretWord.length; i++) {
+        // Found all char coincients
+        if (secretWord[i] == character) {
+            charDrawing(character, i, true);
+        }
+    }
+}
+
+function incorrectChar(character) {
+    charDrawing(character, null, false);
 }
 
 function startGame() {
@@ -41,6 +57,7 @@ function startGame() {
     wordHolder();
     // Keep listening for any keypress event and call a function returning his key.
     document.onkeypress = keyboardCapturer;
-    wordDrawing()
+    drawGallow(1);
 }
+
 
