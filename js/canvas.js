@@ -38,26 +38,14 @@ function wordHolder() {
     table.closePath();
 }
 
-// function wordDrawing() {
-//     table.font = "80px Arial";
-//     table.fillStyle = "#0A3871";
-//
-//     for (let i = 0; i < wordLen; i++) {
-//         table.strokeText(secretWord[i], x, 630);
-//         table.fillText(secretWord[i], x, 630);
-//         x += 99;
-//     }
-// }
 
-let incorrectList = [];
 // correct arg. take if the char is correct or incorrect (true or false).
 function charDrawing(character, index, correct) {
     table.font = "80px Inter";
     table.lineWidth = 2;
-    let tmpX = x;
-    // -------------incorrect attempts vars --------------------
-    let xIncorrect = x;
+
     if (correct == true) {
+        var tmpX = x;
         x += (index * 100);
         table.fillStyle = "#0A3871";
         table.strokeText(character, x, 630);
@@ -65,83 +53,98 @@ function charDrawing(character, index, correct) {
         x = tmpX;
     }
     else if (correct == false){
+        var xIncorrect = x;
         table.fillStyle = "#AA4A44";
-        if (incorrectList.indexOf(character) == -1) {
-            xIncorrect += (incorrectList.length * 100)
-            table.strokeText(character, xIncorrect, 750);
-            table.fillText(character, xIncorrect, 750);
-            incorrectList.push(character);
-            console.log(incorrectList.length);
-        }
+        xIncorrect += (incorrectList.length * 100)
+        table.strokeText(character, xIncorrect, 750);
+        table.fillText(character, xIncorrect, 750);
     }
 }
 
-function drawGallow(attempts) {
+function drawGallow(incorrectAttempts) {
     table.lineWidth = 8;
     table.lineCap = "round";
     table.lineJoin = "round";
     table.fillStyle = "#E5E5E5";
     table.strokeStyle = "#0A3871";
-
+    
     // First stick
-    table.beginPath();
-    table.moveTo(500, 500);
-    table.lineTo(500, 100);
-    table.stroke();
-    table.closePath();
+    if (incorrectAttemps == 1) {
+        table.beginPath();
+        table.moveTo(500, 500);
+        table.lineTo(500, 100);
+        table.stroke();
+        table.closePath();
+    }
 
     // Second stick
-    table.beginPath();
-    table.moveTo(500, 100);
-    table.lineTo(650, 100);
-    table.stroke();
-    table.closePath();
+    if (incorrectAttemps == 2) {
+        table.beginPath();
+        table.moveTo(500, 100);
+        table.lineTo(650, 100);
+        table.stroke();
+        table.closePath();
+    }
 
     // Third stick
+    if (incorrectAttemps == 3) {
     table.beginPath();
     table.moveTo(650, 100);
     table.lineTo(650, 150);
     table.stroke();
     table.closePath();
+    }
 
     // Head
+    if (incorrectAttemps == 4) {
     table.beginPath();
     table.arc(650, 200, 45, 2 * Math.PI, false);
     table.stroke();
     table.closePath();
+    }
 
     // Torso
+    if (incorrectAttemps == 5) {
     table.beginPath();
     table.moveTo(650, 245);
     table.lineTo(650, 350);
     table.stroke();
     table.closePath();
+    }
 
     // Right leg
+    if (incorrectAttemps == 6) {
     table.beginPath();
     table.moveTo(650, 350);
     table.lineTo(710, 420);
     table.stroke();
     table.closePath();
+    }
 
     // Left leg
+    if (incorrectAttemps == 7) {
     table.beginPath();
     table.moveTo(650, 350);
     table.lineTo(590, 420);
     table.stroke();
     table.closePath();
+    }
 
-   // Rigth arm 
+    // Rigth arm 
+    if (incorrectAttemps == 8) {
     table.beginPath();
     table.moveTo(650, 260);
     table.lineTo(700, 330);
     table.stroke();
     table.closePath();
+    }
 
-   // Left arm 
+    // Left arm 
+    if (incorrectAttemps == 9) {
     table.beginPath();
     table.moveTo(650, 260);
     table.lineTo(600, 330);
     table.stroke();
     table.closePath();
+    }
 }

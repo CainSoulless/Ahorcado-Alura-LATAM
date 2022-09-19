@@ -1,5 +1,5 @@
-// let words = ["ALURA", "ORACLE", "ONE", "JAVASCRIPT", "LATAM"];
-let words = ["ONE"];
+let words = ["ALURA", "ORACLE", "ONE", "JAVASCRIPT", "LATAM"];
+// let words = ["ONE"];
 let secretWord = randomWord();
 let canvasEl = document.getElementById("myCanvas");
 let table = canvasEl.getContext("2d");
@@ -22,7 +22,6 @@ function lobbyGame(disp) {
 function randomWord() {
     list = words;
     var index = Math.floor(Math.random() * list.length);
-    console.log(list[index]);
     return list[index];
 }
 
@@ -38,17 +37,44 @@ function keyboardCapturer(evObject) {
     }
 }
 
+// counter for correct attempts
+let correctAttemps = 0;
+
 function correctChar(character) {
     for (let i = 0; i < secretWord.length; i++) {
         // Found all char coincients
         if (secretWord[i] == character) {
             charDrawing(character, i, true);
+            correctAttemps++;
+            endGame(incorrectAttemps, correctAttemps);
         }
     }
 }
 
+// counter for incorrect attempts
+let incorrectAttemps = 0; 
+let incorrectList = [];
+
 function incorrectChar(character) {
-    charDrawing(character, null, false);
+    if (incorrectList.indexOf(character) == -1) {
+        charDrawing(character, incorrectAttemps, false);
+        incorrectList.push(character);
+        incorrectAttemps++;
+        drawGallow(incorrectAttemps);
+        endGame(incorrectAttemps, correctAttemps);
+    }
+}
+
+function endGame(inAtm, coAtm) {
+    if (inAtm == 9) {
+        alert("Loose");
+        window.location.replace("index.html");
+    }
+
+    if (coAtm == secretWord.length){
+        alert("Won");
+        window.location.replace("index.html");
+    }
 }
 
 function startGame() {
@@ -57,7 +83,6 @@ function startGame() {
     wordHolder();
     // Keep listening for any keypress event and call a function returning his key.
     document.onkeypress = keyboardCapturer;
-    drawGallow(1);
 }
 
 
