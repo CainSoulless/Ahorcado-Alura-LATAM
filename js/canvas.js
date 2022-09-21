@@ -96,63 +96,63 @@ function drawGallow(incorrectAttempts) {
 
     // Third stick
     if (incorrectAttemps == 3) {
-    table.beginPath();
-    table.moveTo(650, 100);
-    table.lineTo(650, 150);
-    table.stroke();
-    table.closePath();
+        table.beginPath();
+        table.moveTo(650, 100);
+        table.lineTo(650, 150);
+        table.stroke();
+        table.closePath();
     }
 
     // Head
     if (incorrectAttemps == 4) {
-    table.beginPath();
-    table.arc(650, 200, 45, 2 * Math.PI, false);
-    table.stroke();
-    table.closePath();
+        table.beginPath();
+        table.arc(650, 200, 45, 2 * Math.PI, false);
+        table.stroke();
+        table.closePath();
     }
 
     // Torso
     if (incorrectAttemps == 5) {
-    table.beginPath();
-    table.moveTo(650, 245);
-    table.lineTo(650, 350);
-    table.stroke();
-    table.closePath();
+        table.beginPath();
+        table.moveTo(650, 245);
+        table.lineTo(650, 350);
+        table.stroke();
+        table.closePath();
     }
 
     // Right leg
     if (incorrectAttemps == 6) {
-    table.beginPath();
-    table.moveTo(650, 350);
-    table.lineTo(710, 420);
-    table.stroke();
-    table.closePath();
+        table.beginPath();
+        table.moveTo(650, 350);
+        table.lineTo(710, 420);
+        table.stroke();
+        table.closePath();
     }
 
     // Left leg
     if (incorrectAttemps == 7) {
-    table.beginPath();
-    table.moveTo(650, 350);
-    table.lineTo(590, 420);
-    table.stroke();
-    table.closePath();
+        table.beginPath();
+        table.moveTo(650, 350);
+        table.lineTo(590, 420);
+        table.stroke();
+        table.closePath();
     }
 
     // Rigth arm 
     if (incorrectAttemps == 8) {
-    table.beginPath();
-    table.moveTo(650, 260);
-    table.lineTo(700, 330);
-    table.stroke();
-    table.closePath();
+        table.beginPath();
+        table.moveTo(650, 260);
+        table.lineTo(700, 330);
+        table.stroke();
+        table.closePath();
     }
 
     // Left arm 
     if (incorrectAttemps == 9) {
-    table.beginPath();
-    table.moveTo(650, 260);
-    table.lineTo(600, 330);
-    table.stroke();
-    table.closePath();
+        table.beginPath();
+        table.moveTo(650, 260);
+        table.lineTo(600, 330);
+        table.stroke();
+        table.closePath();
     }
 }
