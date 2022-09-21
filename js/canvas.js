@@ -5,8 +5,7 @@ let charSpace = 100;
 let len = (charSpace * wordLen) - (charSpace / wordLen);
 // X, beginning of the word on the cartesian plane.
 let x = (1200 / 2) - (len / 2) + 4;
-// Create each space for each word.
-
+ 
 function drawingCanvas() {
     table.lineWidth = 8;
     table.lineCap = "round";
@@ -53,12 +52,21 @@ function charDrawing(character, index, correct) {
         x = tmpX;
     }
     else if (correct == false){
-        var xIncorrect = x;
+        // var xIncorrect = 400 + ((incorrectList.length - 1) * 100);
+        var xGoingBack= (1200 / 2) - (incorrectList.length * 25);
+
+        clearIncorrectList();
+
         table.fillStyle = "#AA4A44";
-        xIncorrect += (incorrectList.length * 100)
-        table.strokeText(character, xIncorrect, 750);
-        table.fillText(character, xIncorrect, 750);
+        table.strokeText(incorrectList.join(" "), xGoingBack, 750);
+        table.fillText(incorrectList.join(" "), xGoingBack, 750);
     }
+}
+
+function clearIncorrectList() {
+    // Clear the latest incorrect char print
+    table.fillStyle = "#E5E5E5";
+    table.fillRect(400, 680, 500, 100);
 }
 
 function drawGallow(incorrectAttempts) {

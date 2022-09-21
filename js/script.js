@@ -1,5 +1,4 @@
 let words = ["ALURA", "ORACLE", "ONE", "JAVASCRIPT", "LATAM"];
-// let words = ["ONE"];
 let secretWord = randomWord();
 let canvasEl = document.getElementById("myCanvas");
 let table = canvasEl.getContext("2d");
@@ -32,7 +31,9 @@ function keyboardCapturer(evObject) {
     // Check if the character isn't a number and if there is into the string.
     if (typeof character == 'string' && index != -1) {
         correctChar(character);
-    } else {
+    }
+
+    if (typeof character == 'string' && index == -1){
         incorrectChar(character);
     }
 }
@@ -57,9 +58,10 @@ let incorrectList = [];
 
 function incorrectChar(character) {
     if (incorrectList.indexOf(character) == -1) {
-        charDrawing(character, incorrectAttemps, false);
+
         incorrectList.push(character);
         incorrectAttemps++;
+        charDrawing(incorrectList, incorrectAttemps, false);
         drawGallow(incorrectAttemps);
         endGame(incorrectAttemps, correctAttemps);
     }
