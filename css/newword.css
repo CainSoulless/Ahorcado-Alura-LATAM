@@ -1,0 +1,43 @@
+body {
+    background-color: #E5E5E5;
+}
+
+.container {
+    position: relative;
+    margin: auto;
+    top: 3em;
+    width: 50%;
+    background-color: #E5E5E5;
+}
+
+textarea {
+    width: 20em;
+    height: 10em;
+    border: none;
+    resize: none;
+    outline: none;
+    background-color: #E5E5E5;
+
+    /* font */
+    font-size: 32px;
+    color: #0A3871;
+    line-height: 150%;
+}
+
+.warningMsg {
+    display: flex;
+    gap: 0.5em;
+}
+
+.warning__img {
+    width: 1em;
+}
+
+.buttons {
+    flex-direction: row;
+    width: 100%;
+}
+
+.btnPrimary {
+    width: 50%;
+}

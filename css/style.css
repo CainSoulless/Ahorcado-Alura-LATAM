@@ -54,7 +54,7 @@ button:hover {
     transition: 0ms;
 }
 
-#btnStart {
+.btnPrimary {
     color: white;
     width: 17%;
     /* min-width: 20%; */
@@ -62,7 +62,7 @@ button:hover {
     background: #0A3871;
 }
 
-#btnAddWord {
+.btnSecondary {
     color: #0A3871;
     border: 1px solid #0A3871;
 }
