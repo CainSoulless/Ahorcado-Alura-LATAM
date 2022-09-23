@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Agregar nueva palabra.</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/reset.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a class="logo" href="index.html"><img src="img/Vector.svg" alt="Logo de Alura LATAM"></a>
+    </header>
+    <div class="textarea">
+       <textarea rows="10" cols="70" placeholder="Ingrese la palabra aqui."></textarea> 
+    </div>
+    <div class="warningMsg">
+        <img class="warning__img" src="../img/symbol.svg" alt="Imagen de advertencia.">
+        <p class="warning__parag">Max. de 8 letras.</p>
+    </div>
+    <div class="buttons">
+        <button type="button" id="btnSave" onclick="saveWord()">Guardar y empezar</button>
+        <a href="../index.html"><button type="button" id="btnCancel">Cancelar</button></a>
+    </div>
+    <footer>
+        <p>Developed by Rodrigo Hormazabal</p>
+        <a href="https://www.github.com/CainSoulless" target="_blank">GitHub</a>
+    </footer>
+</body>
+</html>

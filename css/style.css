@@ -2,10 +2,18 @@
     font-family: 'Inter', sans-serif;
 }
 
+header {
+    background-color: #E5E5E5;
+    /* background-color: red; */
+    height: 6em;
+}
+
 .logo {
+    position: relative;
+    top: 2em;
     margin-left: 2%;
-    margin-top: 2%;
     width: 2%;
+    background-color: #E5E5E5;
 }
 
 main {
@@ -17,9 +25,6 @@ main {
 #myCanvas {
     display: none;
     margin: 0 auto;
-    /* background: red; */
-    /* width: 100%; */
-    /* height: 860px; */
 }
 
 .buttons {
@@ -142,13 +147,13 @@ button:hover {
 /* Footer */
 
 footer {
-    padding: 5%;
-    text-align: center;
-    width: 100%;
-    height: 230px;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    padding: 5em;
     background: #D8D8D8;
 }
 
-footer p, a {
-    background: #D8D8D8;
+.footer__ref {
+    padding-top: 1em;
 }

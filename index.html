@@ -1,16 +1,18 @@
 <!doctype html>
 <html lang="es">
 <head>
+    <title>Juego del ahorcado - Alura LATAM</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Juego del ahorcado - Alura LATAM</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
-        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
     </head>
     <body>
     <header>
-        <img class="logo" src="img/Vector.svg" alt="Logo de Alura LATAM" onclick="lobbyGame('flex')">
+        <!-- <img class="logo" src="img/Vector.svg" alt="Logo de Alura LATAM" onclick="lobbyGame('flex')"> -->
+        <a class="logo" href="index.html"><img src="img/Vector.svg" alt="Logo de Alura LATAM"></a>
+        
     </header>
     <main>
         <div id="ahorcado">
@@ -25,17 +27,16 @@
             <div class="modal__container">
                 <img src="" alt="Ventana modal de victoria" class="modal__img"> 
                 <h2 class="modal__title"></h2>
-                <p class="modal__para">Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.</p>
+                <p class="modal__para">¡Puedes seguir intentando o crear una lista nueva en el boton de "Agregar nueva palabra"!.</p>
                 <a href="index.html" class="modal__close">Volver al menu.</a>
             </div>
         </section>
     <footer>
         <p>Developed by Rodrigo Hormazabal</p>
-        <a href="https://www.github.com/CainSoulless" target="_blank">GitHub</a>
+        <a class="footer__ref" href="https://www.github.com/CainSoulless" target="_blank">GitHub</a>
     </footer>
     <script type="text/javascript" src="js/script.js"></script>
     <script type="text/javascript" src="js/canvas.js"></script>
     <script type="text/javascript" src="js/modal.js"></script>
 </body>
 </html>
-
