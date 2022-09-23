@@ -53,20 +53,21 @@ function charDrawing(character, index, correct) {
     }
     else if (correct == false){
         // var xIncorrect = 400 + ((incorrectList.length - 1) * 100);
-        var xGoingBack= (1200 / 2) - (incorrectList.length * 25);
+        var xGoingBack= (1200 / 2) - (incorrectList.length * 30);
 
         clearIncorrectList();
 
         table.fillStyle = "#AA4A44";
         table.strokeText(incorrectList.join(" "), xGoingBack, 750);
-        table.fillText(incorrectList.join(" "), xGoingBack, 750);
+        table.fillText(incorrectList.join(" "), xGoingBack, 750);       
     }
 }
 
 function clearIncorrectList() {
     // Clear the latest incorrect char print
     table.fillStyle = "#E5E5E5";
-    table.fillRect(400, 680, 500, 100);
+    // table.fillStyle = "white";
+    table.fillRect(350, 680, 700, 100);
 }
 
 function drawGallow(incorrectAttempts) {

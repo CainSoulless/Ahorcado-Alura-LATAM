@@ -1,7 +1,15 @@
-let words = ["ALURA", "ORACLE", "ONE", "JAVASCRIPT", "LATAM"];
+// let words = ["ALURA", "ORACLE", "ONE", "JAVASCRIPT", "LATAM"];
+let words = ["A"];
 let secretWord = randomWord();
 let canvasEl = document.getElementById("myCanvas");
 let table = canvasEl.getContext("2d");
+let usedKeyList = [];
+// counter for correct attempts
+let correctAttemps = 0;
+let correctList = [];
+// counter for incorrect attempts
+let incorrectAttemps = 0; 
+let incorrectList = [];
 
 // Show and hidde elements in the page lobby 
 function lobbyGame(disp) {
@@ -26,20 +34,20 @@ function randomWord() {
 
 // Return the key pressed by the user.
 function keyboardCapturer(evObject) {
-    var character = String.fromCharCode(evObject.which).toUpperCase();
-    var index = secretWord.indexOf(character);
-    // Check if the character isn't a number and if there is into the string.
-    if (typeof character == 'string' && index != -1) {
-        correctChar(character);
-    }
-
-    if (typeof character == 'string' && index == -1){
-        incorrectChar(character);
+    let character = String.fromCharCode(evObject.which).toUpperCase();
+    // Check if the character is a valid char and if isn't a key previously pressed.
+    if ((evObject.which >= 97 && evObject.which <= 122) && (usedKeyList.indexOf(character) == -1)) {
+        usedKeyList.push(character);
+        // Identify if the character pressed is there inside the word.
+        let index = secretWord.indexOf(character);
+        if (index == -1) {
+            incorrectChar(character);
+        }
+        else {
+            correctChar(character);
+        }
     }
 }
-
-// counter for correct attempts
-let correctAttemps = 0;
 
 function correctChar(character) {
     for (let i = 0; i < secretWord.length; i++) {
@@ -52,30 +60,21 @@ function correctChar(character) {
     }
 }
 
-// counter for incorrect attempts
-let incorrectAttemps = 0; 
-let incorrectList = [];
-
 function incorrectChar(character) {
-    if (incorrectList.indexOf(character) == -1) {
-
-        incorrectList.push(character);
-        incorrectAttemps++;
-        charDrawing(incorrectList, incorrectAttemps, false);
-        drawGallow(incorrectAttemps);
-        endGame(incorrectAttemps, correctAttemps);
-    }
+    incorrectList.push(character);
+    incorrectAttemps++;
+    charDrawing(incorrectList, incorrectAttemps, false);
+    drawGallow(incorrectAttemps);
+    endGame(incorrectAttemps, correctAttemps);
 }
 
 function endGame(inAtm, coAtm) {
     if (inAtm == 9) {
-        alert("Loose");
-        window.location.replace("index.html");
+        lose();
     }
 
     if (coAtm == secretWord.length){
-        alert("Won");
-        window.location.replace("index.html");
+        win();
     }
 }
 
@@ -86,5 +85,3 @@ function startGame() {
     // Keep listening for any keypress event and call a function returning his key.
     document.onkeypress = keyboardCapturer;
 }
-
-
