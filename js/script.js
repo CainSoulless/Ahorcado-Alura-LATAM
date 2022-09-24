@@ -17,11 +17,14 @@ function lobbyGame(disp) {
         el.style.display = disp;
     });
 
-    if (disp == 'none') {
-        canvasEl.style.display = "flex";
+    if (disp == 'href') {
+        window.location.href="web/newword.html";
     }
     else if (disp == 'flex') {
         canvasEl.style.display = "none";
+    }
+    else if (disp == 'none') {
+        canvasEl.style.display = "flex";
     }
 }
 
@@ -72,7 +75,6 @@ function endGame(inAtm, coAtm) {
     if (inAtm == 9) {
         lose();
     }
-
     if (coAtm == secretWord.length){
         win();
     }
