@@ -1,11 +1,16 @@
-let wordLen = secretWord.length;
+
 // The character plus the space are equal to 100 px
 let charSpace = 100;
-// length of the whole word maded characters and spaces.
-let len = (charSpace * wordLen) - (charSpace / wordLen);
-// X, beginning of the word on the cartesian plane.
-let x = (1200 / 2) - (len / 2) + 4;
- 
+
+function getX() {
+    // length of the whole word maded characters and spaces.
+    let len = (charSpace * wordLen) - (charSpace / wordLen);
+
+    // X, beginning of the word on the cartesian plane.
+    let x = (1200 / 2) - (len / 2) + 4;
+    return x;
+} 
+
 function drawingCanvas() {
     table.lineWidth = 8;
     table.lineCap = "round";
@@ -22,11 +27,14 @@ function drawingCanvas() {
 }
 
 function wordHolder() {
+    var x = getX();
+
     table.lineWidth = 8;
     table.lineCap = "round";
     table.lineJoin = "round";
     table.fillStyle = "#E5E5E5";
     table.strokeStyle = "#0A3871";
+    console.log(wordLen);
 
     for (let i = 0; i < wordLen; i++) {
         table.moveTo(x + (charSpace * i), 640);
@@ -40,6 +48,7 @@ function wordHolder() {
 
 // correct arg. take if the char is correct or incorrect (true or false).
 function charDrawing(character, index, correct) {
+    var x = getX();
     table.font = "80px Inter";
     table.lineWidth = 2;
 
@@ -70,7 +79,7 @@ function clearIncorrectList() {
     table.fillRect(350, 680, 700, 100);
 }
 
-function drawGallow(incorrectAttempts) {
+function drawGallow(incorrectAttemps) {
     table.lineWidth = 8;
     table.lineCap = "round";
     table.lineJoin = "round";

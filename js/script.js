@@ -1,8 +1,7 @@
 // let words = ["ALURA", "ORACLE", "ONE", "JAVASCRIPT", "LATAM"];
 let words = ["A"];
-let secretWord = randomWord();
-let canvasEl = document.getElementById("myCanvas");
-let table = canvasEl.getContext("2d");
+let secretWord = "";
+let wordLen = 0;
 let usedKeyList = [];
 // counter for correct attempts
 let correctAttemps = 0;
@@ -11,6 +10,12 @@ let correctList = [];
 let incorrectAttemps = 0; 
 let incorrectList = [];
 
+let addedWord = "";
+addedWord = localStorage.getItem('added');
+console.log(addedWord);
+let canvasEl = document.getElementById("myCanvas");
+let table = canvasEl.getContext("2d");
+
 // Show and hidde elements in the page lobby 
 function lobbyGame(disp) {
     Array.prototype.forEach.call(document.getElementsByClassName("buttons"), function(el){
@@ -18,7 +23,7 @@ function lobbyGame(disp) {
     });
 
     if (disp == 'href') {
-        window.location.href="web/newword.html";
+        window.location.href="newword.html";
     }
     else if (disp == 'flex') {
         canvasEl.style.display = "none";
@@ -30,26 +35,14 @@ function lobbyGame(disp) {
 
 // Return the word randimized.
 function randomWord() {
-    list = words;
-    var index = Math.floor(Math.random() * list.length);
-    return list[index];
-}
-
-// Return the key pressed by the user.
-function keyboardCapturer(evObject) {
-    let character = String.fromCharCode(evObject.which).toUpperCase();
-    // Check if the character is a valid char and if isn't a key previously pressed.
-    if ((evObject.which >= 97 && evObject.which <= 122) && (usedKeyList.indexOf(character) == -1)) {
-        usedKeyList.push(character);
-        // Identify if the character pressed is there inside the word.
-        let index = secretWord.indexOf(character);
-        if (index == -1) {
-            incorrectChar(character);
-        }
-        else {
-            correctChar(character);
-        }
+    var index = Math.floor(Math.random() * words.length);
+    if (addedWord == null) {
+        secretWord = words[index];
+        console.log(words)
+    } else {
+        secretWord = addedWord;
     }
+    wordLen = secretWord.length;
 }
 
 function correctChar(character) {
@@ -71,7 +64,26 @@ function incorrectChar(character) {
     endGame(incorrectAttemps, correctAttemps);
 }
 
+// Return the key pressed by the user.
+function keyboardCapturer(evObject) {
+    let character = String.fromCharCode(evObject.which).toUpperCase();
+    // Check if the character is a valid char and if isn't a key previously pressed.
+    if ((evObject.which >= 97 && evObject.which <= 122) && (usedKeyList.indexOf(character) == -1)) {
+        usedKeyList.push(character);
+        // Identify if the character pressed is there inside the word.
+        let index = secretWord.indexOf(character);
+
+        if (index == -1) {
+            incorrectChar(character);
+        }
+        else {
+            correctChar(character);
+        }
+    }
+}
+
 function endGame(inAtm, coAtm) {
+    // lose and win function allocated on modal.js
     if (inAtm == 9) {
         lose();
     }
@@ -80,8 +92,12 @@ function endGame(inAtm, coAtm) {
     }
 }
 
+// ---------------newword-------------
+
 function startGame() {
     lobbyGame('none');
+    randomWord();
+    console.log(secretWord);
     drawingCanvas();
     wordHolder();
     // Keep listening for any keypress event and call a function returning his key.

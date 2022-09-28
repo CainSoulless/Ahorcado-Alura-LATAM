@@ -136,7 +136,7 @@ button:hover {
     font-weight: 300;
 
     /* Animation */
-    transition: .6;
+    transition: .6s;
 }
 
 .modal__close:hover {

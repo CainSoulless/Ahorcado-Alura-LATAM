@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript">
+            // var eventController = false;
+            let msg = '';
+            window.onload = function() {
+                document.onkeypress = charInfo;
+            } 
+            var character = String.fromCharCode(evObject.which);
+            if (evObject.which != 0 && evObject.which != 13){
+                msg = 'key pressed: ' + character;
+                control.innerHTML += msg + '---<br/>';
+            }
+            else {
+                msg = 'special key pressed: ';
+                control.innerHTML += msg + '---<br/>';
+                // eventController= true;
+            }
+        </script>
+    </head>
+    <body>
+        <div id="control"></div>
+    </body>
+</html>

@@ -11,3 +11,9 @@ function lose() {
     document.querySelector(".modal__img").src = "img/lose.svg";
     openModal.classList.add("modal--show"); 
 }
+
+function invalid() {
+    document.querySelector(".modal__title").innerHTML = "Error!."
+    document.querySelector(".modal__img").src = "img/error.svg";
+    openModal.classList.add("modal--show"); 
+}
