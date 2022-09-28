@@ -1,4 +1,4 @@
-let words = ["ALURA", "ORACLE", "ONE", "JAVASCRIPT", "LATAM"];
+let words = ["ALURA", "ORACLE", "ONE", "JAVASCRIPT", "LATAM", "COMPUTAR", "CAFE", "TECH", "CLOUD", "TECLADO", "PROGRAMADOR", "CIBERSEGURIDAD", "INFRAESTRUCTURA", "ESTUDIAR", "FUNCION", "VARIABLE"];
 let secretWord = "";
 let wordLen = 0;
 let usedKeyList = [];
