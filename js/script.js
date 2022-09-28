@@ -1,5 +1,4 @@
-// let words = ["ALURA", "ORACLE", "ONE", "JAVASCRIPT", "LATAM"];
-let words = ["A"];
+let words = ["ALURA", "ORACLE", "ONE", "JAVASCRIPT", "LATAM"];
 let secretWord = "";
 let wordLen = 0;
 let usedKeyList = [];
@@ -11,7 +10,7 @@ let incorrectAttemps = 0;
 let incorrectList = [];
 
 let addedWord = "";
-addedWord = localStorage.getItem('added');
+addedWord = sessionStorage.getItem('added');
 let canvasEl = document.getElementById("myCanvas");
 let table = canvasEl.getContext("2d");
 
@@ -88,6 +87,7 @@ function endGame(inAtm, coAtm) {
     if (coAtm == secretWord.length){
         win();
     }
+    sessionStorage.clear();
 }
 
 // ---------------newword-------------

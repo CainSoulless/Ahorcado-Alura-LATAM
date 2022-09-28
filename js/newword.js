@@ -1,19 +1,10 @@
-// let input = document.getElementById("textareaId");
-//
-// input.addEventListener('keypress', function(event) {
-//     if (event.key == "Enter") {
-//         event.preventDefault();
-//         document.getElementById("btnSave");
-//         addWord();
-//     }
-// });
-
 document.addEventListener('keyup', function(e) {
     if (e.key === "Enter" || e.keyCode === 13) {
-        addWord(words);
+        addWord();
     }
 });
 
+// Get the string into the textarea and it's saved into a localStorage for persistence.
 function addWord(){
     var text = document.getElementById("textareaId").value.toUpperCase();
     
@@ -21,7 +12,15 @@ function addWord(){
         invalid();
         return false;
     }
-    localStorage.setItem('added', text);
+    console.log(text);
+   
+    // Solve a bug when the user press an enter key.
+    if (text.slice(-1) == " " || text.slice(-1) == "\n") {
+        text = text.slice(0, -1);
+        console.log("after" +text);
+    }
+
+    // localStorage.setItem('added', text);
+    sessionStorage.setItem('added', text);
     window.location.replace("index.html");
-    return false;
 }

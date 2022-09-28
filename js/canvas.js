@@ -18,7 +18,7 @@ function drawingCanvas() {
     table.fillStyle = "#E5E5E5";
     table.strokeStyle = "#0A3871";
 
-    table.fillRect(0, 0, 1200, 860);
+    table.fillRect(0, 0, 1200, 800);
     table.beginPath();
     table.moveTo(450, 500);
     table.lineTo(750, 500);
