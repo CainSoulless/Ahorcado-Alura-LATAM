@@ -34,7 +34,6 @@ function wordHolder() {
     table.lineJoin = "round";
     table.fillStyle = "#E5E5E5";
     table.strokeStyle = "#0A3871";
-    console.log(wordLen);
 
     for (let i = 0; i < wordLen; i++) {
         table.moveTo(x + (charSpace * i), 640);

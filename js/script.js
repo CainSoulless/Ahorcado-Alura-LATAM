@@ -12,7 +12,6 @@ let incorrectList = [];
 
 let addedWord = "";
 addedWord = localStorage.getItem('added');
-console.log(addedWord);
 let canvasEl = document.getElementById("myCanvas");
 let table = canvasEl.getContext("2d");
 
@@ -38,7 +37,6 @@ function randomWord() {
     var index = Math.floor(Math.random() * words.length);
     if (addedWord == null) {
         secretWord = words[index];
-        console.log(words)
     } else {
         secretWord = addedWord;
     }
@@ -97,7 +95,6 @@ function endGame(inAtm, coAtm) {
 function startGame() {
     lobbyGame('none');
     randomWord();
-    console.log(secretWord);
     drawingCanvas();
     wordHolder();
     // Keep listening for any keypress event and call a function returning his key.

@@ -16,13 +16,12 @@ document.addEventListener('keyup', function(e) {
 
 function addWord(){
     var text = document.getElementById("textareaId").value.toUpperCase();
-    console.log("added " + text);
     
     if (text.length > 8) {
         invalid();
         return false;
     }
     localStorage.setItem('added', text);
-    // window.location.replace("index.html");
+    window.location.replace("index.html");
     return false;
 }
